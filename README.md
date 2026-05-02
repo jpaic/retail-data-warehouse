@@ -5,6 +5,14 @@ Covers ingestion, cleaning, dimensional modelling, and BI reporting across 51,29
 
 ---
 
+## Live Demo
+
+**[Streamlit App](https://jpaic-retail-data-warehouse.streamlit.app)**
+
+> **Note:** The Streamlit app reads directly from a CSV via pandas and is not connected to the PostgreSQL database. It's a standalone interactive showcase of the same dataset - the full DWH project (star schema, ETL pipelines, Power BI) exists only locally and is documented below.
+
+---
+
 ## Technologies Used
 
 | Layer | Tool |
@@ -193,19 +201,3 @@ RetailDataWarehouse/
         page3_product_analytics.JPG
         page4_time_analysis.JPG
 ```
-
----
-
-## How to Run
-
-1. Create a PostgreSQL database and run scripts in order (`01` → `09`)
-2. Load the CSV from `data/raw/` into `raw.orders` via pgAdmin import
-3. Run `10_dashboard_views.sql` after marts are loaded
-4. Open `dashboard/powerbi/retail_dwh.pbix` and refresh the data connection
-5. Run `notebooks/01_eda.ipynb` for exploratory analysis (requires `pandas`, `matplotlib`)
-
-```bash
-pip install -r requirements.txt
-```
-
----
