@@ -638,29 +638,27 @@ elif section == "Time Analysis":
     heat_pivot = (heat.pivot(index="year", columns="month", values="sales").fillna(0))
     heat_pivot.columns = month_labels
 
+    year_labels = [str(y) for y in heat_pivot.index]
     fig = px.imshow(
-        heat_pivot,
+        heat_pivot.values,
+        x=month_labels,
+        y=year_labels,
         color_continuous_scale="Blues",
         labels=dict(color="Revenue (USD)"),
         aspect="auto",
         text_auto=False,
     )
-    # Overlay text annotations
-    for i, yr in enumerate(heat_pivot.index):
+    max_val = heat_pivot.values.max()
+    for i, yr in enumerate(year_labels):
         for j, mn in enumerate(month_labels):
-            val = heat_pivot.loc[yr, mn]
+            val = heat_pivot.values[i, j]
             fig.add_annotation(
-                x=j, y=i,
+                x=mn, y=yr,
                 text=f"${val/1e3:.0f}k",
                 showarrow=False,
-                font=dict(size=9, color="white" if val > heat_pivot.values.max() * 0.6 else "#555"),
+                font=dict(size=9, color="white" if val > max_val * 0.6 else "#555"),
             )
     apply_layout(fig, height=220)
-    fig.update_layout(
-        xaxis=dict(tickvals=list(range(12)), ticktext=month_labels),
-        yaxis=dict(tickvals=list(range(len(heat_pivot))),
-                   ticktext=[str(y) for y in heat_pivot.index]),
-    )
     st.plotly_chart(fig, use_container_width=True)
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -677,7 +675,7 @@ elif section == "Insights":
     )
 
     # ── Revenue & Scale
-    st.markdown("#### Revenue & Scale")
+    st.markdown("#### 💰 Revenue & Scale")
     st.markdown("""
     <div class="insight-card">
       <span class="insight-badge badge-revenue">Revenue</span>
@@ -703,7 +701,7 @@ elif section == "Insights":
     """, unsafe_allow_html=True)
 
     # ── Customer Analytics
-    st.markdown("#### Customer Analytics")
+    st.markdown("#### 👥 Customer Analytics")
     st.markdown("""
     <div class="insight-card teal">
       <span class="insight-badge badge-customer">Customers</span>
@@ -729,7 +727,7 @@ elif section == "Insights":
     """, unsafe_allow_html=True)
 
     # ── Product Analytics
-    st.markdown("#### Product Analytics")
+    st.markdown("#### 📦 Product Analytics")
     st.markdown("""
     <div class="insight-card amber">
       <span class="insight-badge badge-product">Products</span>
@@ -756,7 +754,7 @@ elif section == "Insights":
     """, unsafe_allow_html=True)
 
     # ── Seasonality & Time
-    st.markdown("#### Seasonality & Time")
+    st.markdown("#### 📅 Seasonality & Time")
     st.markdown("""
     <div class="insight-card pink">
       <span class="insight-badge badge-time">Time</span>
