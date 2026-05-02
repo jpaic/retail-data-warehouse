@@ -166,13 +166,14 @@ The same `product_id` appeared with slightly different `product_name` values acr
 RetailDataWarehouse/
 │   README.md
 │   requirements.txt
+|   app.py
 │
 ├───data/
 │   ├───raw/                        ← Source CSV
 │   └───cleaned/                    ← Exported staging table
 │
 ├───notebooks/
-│       01_eda.ipynb                ← Exploratory data analysis
+│       eda.ipynb                ← Exploratory data analysis
 │
 ├───sql/
 │   ├───schema/
