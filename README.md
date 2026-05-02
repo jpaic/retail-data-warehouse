@@ -80,7 +80,7 @@ Three scripts run in sequence:
 
 ### 3 — Dimensional Modelling (`sql/marts/`)
 - **`06_star_schema.sql`** — Creates all fact and dimension tables with surrogate keys (`SERIAL PRIMARY KEY`).
-- **`07_load_dimensions.sql`** — Populates dimension tables. Products deduplicated with `GROUP BY product_id` + `MIN()` to handle name variations in the source. Geography uses `(state, country, region, market)` as the natural key — no city field exists in the source data.
+- **`07_load_dimensions.sql`** — Populates dimension tables. Products deduplicated with `GROUP BY product_id` + `MIN()` to handle name variations in the source. Geography uses `(state, country, region, market)` as the natural key.
 - **`08_load_fact_sales.sql`** — Loads fact table with `JOIN` to all four dimensions. All joins verified as 1:1 to prevent fan-out.
 
 ### 4 — Dashboard Views (`sql/dashboard/`)
