@@ -8,7 +8,6 @@ from plotly.subplots import make_subplots
 # ── PAGE CONFIG ────────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Retail Data Warehouse",
-    page_icon="🏪",
     layout="wide",
     initial_sidebar_state="expanded",
 )
