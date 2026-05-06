@@ -14,9 +14,9 @@ Dataset scale:
 
 ## Live Demo
 
-- **Next.js Dashboard:** [Dashboard](https://jpaic-retail-dwh.vercel.app)
+**[Retail Analytics Dashboard](https://jpaic-retail-dwh.vercel.app)**  
 
-The Next.js dashboard is the main serving/presentation layer. It reads from PostgreSQL through API routes and is designed for Vercel deployment.
+The Next.js dashboard is the main serving/presentation layer. It reads from PostgreSQL through API routes and is designed for Vercel deployment
 
 
 ---
