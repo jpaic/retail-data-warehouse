@@ -64,10 +64,22 @@ export function InsightsPage() {
           </ChartCard>
         ))}
       </div>
-      <section className="mt-6 rounded-lg border border-blue-200 bg-blue-50 p-5 text-sm leading-6 text-blue-950">
-        Built as an end-to-end retail data warehouse on PostgreSQL with a star
-        schema, mart views, API routes, and a Next.js presentation layer ready
-        for Vercel deployment.
+      <section className="mt-6 rounded-xl border border-slate-200 bg-white p-6">
+        <div className="space-y-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+            Executive Summary
+          </p>
+
+          <h3 className="text-lg font-semibold text-slate-900">
+            Technology products and APAC demand represent the strongest long-term growth drivers.
+          </h3>
+
+          <p className="max-w-3xl text-sm leading-6 text-slate-600">
+            Regional consistency, recurring Q4 demand acceleration, and strong consumer segment activity
+            indicate a stable retail growth pattern across the dataset. Margin pressure from discount-heavy
+            categories remains the primary operational risk area.
+          </p>
+        </div>
       </section>
     </>
   );
