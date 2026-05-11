@@ -42,7 +42,7 @@ export function Sidebar() {
   }, []);
 
   return (
-    <aside className="border-b border-slate-200 bg-slate-950 px-5 py-4 text-white lg:min-h-screen lg:w-68 lg:border-b-0 lg:px-6">
+    <aside className="border-b border-slate-200 bg-slate-950 px-5 py-4 text-white lg:sticky lg:top-0 lg:h-screen lg:w-68 lg:self-start lg:overflow-y-auto lg:border-b-0 lg:px-6">
       <div className="flex items-center gap-3">
         <div className="flex size-9 items-center justify-center rounded-md bg-blue-600 text-sm font-semibold">
           RD
