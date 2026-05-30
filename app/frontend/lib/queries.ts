@@ -16,9 +16,8 @@ export async function queryOne<T extends QueryResultRow>(sql: string) {
 export function financialKpis(values: {
   total_sales: number;
   total_profit: number;
-  total_orders: number;
-  avg_order_value: number;
   profit_margin?: number;
+  avg_order_value: number;
 }): KpiMetric[] {
   const kpis = [
     {
@@ -30,11 +29,6 @@ export function financialKpis(values: {
       label: "Total Profit",
       value: compactCurrency(values.total_profit),
       detail: "Profit across selected grain",
-    },
-    {
-      label: "Total Orders",
-      value: integer(values.total_orders),
-      detail: "Order-line grain in warehouse",
     },
     {
       label: "Average Order Value",

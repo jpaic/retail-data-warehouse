@@ -10,9 +10,8 @@ export async function GET() {
         queryOne<{
           total_sales: number;
           total_profit: number;
-          total_orders: number;
-          avg_order_value: number;
           profit_margin: number;
+          avg_order_value: number;
         }>(`
           SELECT
             COALESCE(SUM(total_revenue), 0)::float AS total_sales,
