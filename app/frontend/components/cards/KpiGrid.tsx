@@ -8,7 +8,7 @@ type KpiGridProps = {
 
 export function KpiGrid({ kpis, isLoading }: KpiGridProps) {
   return (
-    <section className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <section className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
       {isLoading
         ? Array.from({ length: 4 }).map((_, index) => (
             <div

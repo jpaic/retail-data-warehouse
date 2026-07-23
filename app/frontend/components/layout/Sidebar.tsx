@@ -42,7 +42,7 @@ export function Sidebar() {
   }, []);
 
   return (
-    <aside className="border-b border-slate-200 bg-slate-950 px-5 py-4 text-white lg:sticky lg:top-0 lg:h-screen lg:w-68 lg:self-start lg:overflow-y-auto lg:border-b-0 lg:px-6">
+    <aside className="flex h-full w-72 flex-col border-r border-slate-200 bg-slate-950 px-6 py-4 text-white">
       <div className="flex items-center gap-3">
         <div className="flex size-9 items-center justify-center rounded-md bg-blue-600 text-sm font-semibold">
           RD
@@ -53,14 +53,14 @@ export function Sidebar() {
         </div>
       </div>
 
-      <nav className="mt-6 flex gap-2 overflow-x-auto lg:flex-col lg:overflow-visible">
+      <nav className="mt-6 flex flex-col gap-1">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
 
           return (
             <Link
               aria-current={isActive ? "page" : undefined}
-              className="whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white aria-[current=page]:bg-white aria-[current=page]:text-slate-950"
+              className="rounded-md px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white aria-[current=page]:bg-white aria-[current=page]:text-slate-950"
               href={item.href}
               key={item.href}
             >
@@ -70,7 +70,7 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="mt-8 hidden rounded-lg border border-white/10 bg-white/5 p-4 text-xs leading-5 text-slate-400 lg:block">
+      <div className="mt-8 rounded-lg border border-white/10 bg-white/5 p-4 text-xs leading-5 text-slate-400">
         <p className="font-semibold uppercase tracking-[0.16em] text-slate-500">
           Tech Stack
         </p>
@@ -86,7 +86,7 @@ export function Sidebar() {
         </div>
       </div>
 
-      <div className="mt-4 hidden rounded-lg border border-white/10 bg-white/5 p-4 text-xs leading-5 text-slate-400 lg:block">
+      <div className="mt-4 rounded-lg border border-white/10 bg-white/5 p-4 text-xs leading-5 text-slate-400">
         <p className="font-semibold uppercase tracking-[0.16em] text-slate-500">
           Data Source
         </p>
@@ -103,7 +103,7 @@ export function Sidebar() {
         </p>
       </div>
 
-      <div className="mt-4 hidden rounded-lg border border-white/10 bg-white/5 p-4 text-xs leading-5 text-slate-400 lg:block">
+      <div className="mt-4 rounded-lg border border-white/10 bg-white/5 p-4 text-xs leading-5 text-slate-400">
         <p className="font-semibold uppercase tracking-[0.16em] text-slate-500">
           Author
         </p>

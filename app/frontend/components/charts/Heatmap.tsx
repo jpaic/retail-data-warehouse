@@ -13,7 +13,9 @@ export function Heatmap({ data }: HeatmapProps) {
 
   return (
     <div className="overflow-x-auto">
-      <div className="grid min-w-[720px] gap-2" style={{ gridTemplateColumns: "72px repeat(12, 1fr)" }}>
+      <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+        <div className="mb-2 text-xs text-slate-400 sm:hidden">Scroll horizontally to see all months →</div>
+        <div className="grid min-w-[720px] gap-2" style={{ gridTemplateColumns: "72px repeat(12, 1fr)" }}>
         <div />
         {months.map((month) => (
           <div className="text-center text-xs font-medium text-slate-500" key={month}>
@@ -23,6 +25,7 @@ export function Heatmap({ data }: HeatmapProps) {
         {years.map((year) => (
           <Row data={data} key={year} maxValue={maxValue} year={year} />
         ))}
+      </div>
       </div>
     </div>
   );

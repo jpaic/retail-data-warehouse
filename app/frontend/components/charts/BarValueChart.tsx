@@ -49,8 +49,9 @@ export function BarValueChart({
             dataKey="name"
             stroke="#64748b"
             tickLine={false}
+            tick={{ fontSize: 12 }}
             type="category"
-            width={128}
+            width={100}
           />
           <Tooltip formatter={(value) => valueFormatter(Number(value))} />
           <Bar dataKey="value" fill={color} name="Value" radius={[0, 4, 4, 0]} />
@@ -63,7 +64,13 @@ export function BarValueChart({
     <ResponsiveContainer height={height} width="100%">
       <BarChart data={data} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
         <CartesianGrid stroke="#e2e8f0" strokeDasharray="4 4" vertical={false} />
-        <XAxis dataKey="name" stroke="#64748b" tickLine={false} />
+        <XAxis
+          dataKey="name"
+          interval="preserveStartEnd"
+          minTickGap={30}
+          stroke="#64748b"
+          tickLine={false}
+        />
         <YAxis
           stroke="#64748b"
           tickFormatter={(value) => valueFormatter(Number(value))}

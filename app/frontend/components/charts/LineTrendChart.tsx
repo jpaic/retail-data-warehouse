@@ -25,7 +25,13 @@ export function LineTrendChart({ data, height = 320 }: LineTrendChartProps) {
     <ResponsiveContainer height={height} width="100%">
       <LineChart data={data} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
         <CartesianGrid stroke="#e2e8f0" strokeDasharray="4 4" />
-        <XAxis dataKey="period" stroke="#64748b" tickLine={false} />
+        <XAxis
+          dataKey="period"
+          interval="preserveStartEnd"
+          minTickGap={30}
+          stroke="#64748b"
+          tickLine={false}
+        />
         <YAxis
           stroke="#64748b"
           tickFormatter={(value) => compactCurrency(Number(value))}
