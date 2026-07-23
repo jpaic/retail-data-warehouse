@@ -5,12 +5,16 @@ import { KpiGrid } from "@/components/cards/KpiGrid";
 import { BarValueChart } from "@/components/charts/BarValueChart";
 import { LineTrendChart } from "@/components/charts/LineTrendChart";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { ChartSkeleton, ErrorBanner } from "@/components/LoadingState";
+import { ChartSkeleton, ErrorBanner, PageSpinner } from "@/components/LoadingState";
 import { useApiData } from "@/components/pages/useApiData";
 import type { OverviewPayload } from "@/types/dashboard";
 
 export function OverviewPage() {
   const { data, isLoading, error } = useApiData<OverviewPayload>("/api/overview");
+
+  if (isLoading && !data) {
+    return <PageSpinner />;
+  }
 
   return (
     <>

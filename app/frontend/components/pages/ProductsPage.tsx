@@ -4,12 +4,16 @@ import { ChartCard } from "@/components/cards/ChartCard";
 import { KpiGrid } from "@/components/cards/KpiGrid";
 import { BarValueChart } from "@/components/charts/BarValueChart";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { ChartSkeleton, ErrorBanner } from "@/components/LoadingState";
+import { ChartSkeleton, ErrorBanner, PageSpinner } from "@/components/LoadingState";
 import { useApiData } from "@/components/pages/useApiData";
 import type { ProductsPayload } from "@/types/dashboard";
 
 export function ProductsPage() {
   const { data, isLoading, error } = useApiData<ProductsPayload>("/api/products");
+
+  if (isLoading && !data) {
+    return <PageSpinner />;
+  }
 
   return (
     <>

@@ -5,12 +5,17 @@ import { KpiGrid } from "@/components/cards/KpiGrid";
 import { BarValueChart } from "@/components/charts/BarValueChart";
 import { PieValueChart } from "@/components/charts/PieValueChart";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { ChartSkeleton, ErrorBanner } from "@/components/LoadingState";
+import { ChartSkeleton, ErrorBanner, PageSpinner } from "@/components/LoadingState";
 import { useApiData } from "@/components/pages/useApiData";
 import type { CustomersPayload } from "@/types/dashboard";
 
 export function CustomersPage() {
   const { data, isLoading, error } = useApiData<CustomersPayload>("/api/customers");
+
+  if (isLoading && !data) {
+    return <PageSpinner />;
+  }
+
   const segmentPie =
     data?.segments.map((segment) => ({
       name: segment.segment,

@@ -6,12 +6,16 @@ import { BarValueChart } from "@/components/charts/BarValueChart";
 import { Heatmap } from "@/components/charts/Heatmap";
 import { LineTrendChart } from "@/components/charts/LineTrendChart";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { ChartSkeleton, ErrorBanner } from "@/components/LoadingState";
+import { ChartSkeleton, ErrorBanner, PageSpinner } from "@/components/LoadingState";
 import { useApiData } from "@/components/pages/useApiData";
 import type { TimePayload } from "@/types/dashboard";
 
 export function TimePage() {
   const { data, isLoading, error } = useApiData<TimePayload>("/api/time");
+
+  if (isLoading && !data) {
+    return <PageSpinner />;
+  }
 
   return (
     <>
